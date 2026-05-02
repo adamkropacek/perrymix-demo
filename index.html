@@ -25,6 +25,8 @@
     --muted-2: #94A3B8;
     --border: #D9E2EC;
     --border-soft: #E6ECF3;
+    --t-fast: 0.2s ease;
+    --t-slow: 0.6s ease;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,7 +53,7 @@
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: saturate(140%) blur(8px);
     border-bottom: 1px solid transparent;
-    transition: border-color .2s, box-shadow .2s;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
   }
   .nav.scrolled {
     border-color: var(--border-soft);
@@ -102,7 +104,7 @@
     color: var(--text-2);
     padding: 8px 14px;
     border-radius: 2px;
-    transition: color .15s, background .15s;
+    transition: color var(--t-fast), background var(--t-fast);
   }
   .nav-menu a:hover { color: var(--navy); background: var(--cream); }
 
@@ -122,7 +124,7 @@
     padding: 4px 7px;
     color: var(--muted);
     border-radius: 2px;
-    transition: color .15s, background .15s;
+    transition: color var(--t-fast), background var(--t-fast);
   }
   .lang-switch button.active { background: var(--white); color: var(--navy); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08); }
   .lang-switch button:hover:not(.active) { color: var(--navy); }
@@ -135,7 +137,7 @@
     border-radius: 2px;
     font-size: 14px;
     font-weight: 600;
-    transition: background .15s, transform .15s, box-shadow .15s;
+    transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
     cursor: pointer;
     white-space: nowrap;
   }
@@ -156,7 +158,7 @@
   }
   .btn-accent:hover { background: var(--accent-2); transform: translateY(-1px); box-shadow: 0 6px 16px -8px rgba(59, 130, 246, 0.6); }
 
-  .btn .arr { transition: transform .15s; }
+  .btn .arr { transition: transform var(--t-fast); }
   .btn:hover .arr { transform: translateX(3px); }
 
   /* ============ HERO ============ */
@@ -443,7 +445,7 @@
   .product {
     background: var(--white);
     border: 1px solid var(--border);
-    transition: transform .25s, box-shadow .25s, border-color .25s;
+    transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -539,7 +541,7 @@
     padding-top: 18px;
     border-top: 1px solid var(--border);
   }
-  .product-link .arr { transition: transform .15s; color: var(--accent); }
+  .product-link .arr { transition: transform var(--t-fast); color: var(--accent); }
   .product:hover .product-link .arr { transform: translateX(4px); }
 
   /* APPLICATIONS */
@@ -555,7 +557,7 @@
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: var(--white);
-    transition: background .2s;
+    transition: background var(--t-fast);
   }
   .app:hover { background: var(--cream); }
   .app-icon {
@@ -568,7 +570,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    transition: background .2s;
+    transition: background var(--t-fast);
   }
   .app:hover .app-icon { background: var(--accent); }
   .app-name {
@@ -817,7 +819,7 @@
     border: 1px solid var(--border);
     border-radius: 2px;
     background: var(--white);
-    transition: border-color .15s, box-shadow .15s;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
   }
   .form-field input:focus,
   .form-field textarea:focus,
@@ -960,7 +962,7 @@
   .footer-col a {
     font-size: 14px;
     color: rgba(255,255,255,0.85);
-    transition: color .15s;
+    transition: color var(--t-fast);
   }
   .footer-col a:hover { color: var(--accent); }
   .footer-bottom {
@@ -979,7 +981,7 @@
     display: flex; align-items: center; justify-content: center;
     border: 1px solid rgba(255,255,255,0.12);
     color: rgba(255,255,255,0.7);
-    transition: background .15s, color .15s, border-color .15s;
+    transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
   }
   .footer-social a:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
 
@@ -1030,7 +1032,7 @@
   }
 
   /* ============ ANIMATIONS ============ */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; will-change: opacity, transform; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity var(--t-slow), transform var(--t-slow); will-change: opacity, transform; }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
   .hero-inner h1, .hero-sub { opacity: 0; transform: translateY(14px); animation: heroIn .9s ease forwards; }
@@ -1038,7 +1040,7 @@
   @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
 
   /* Subtle product image zoom (if image present inside) */
-  .product img, .app img { transition: transform .6s ease; }
+  .product img, .app img { transition: transform var(--t-slow); }
   .product:hover img, .app:hover img { transform: scale(1.04); }
 
   /* A11y — respect user motion preference */
